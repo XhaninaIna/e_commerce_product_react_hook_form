@@ -1,0 +1,153 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+h2,
+h3,
+h4 {
+  color: #333;
+}
+
+h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+h4 {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #555;
+}
+
+p {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Container for the product list and cart */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+/* Product List */
+.product-list {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.product-item {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-item img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.product-item h3 {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.product-item p {
+  margin-bottom: 10px;
+}
+
+.product-item button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-item button:hover {
+  background-color: #0056b3;
+}
+
+/* Cart Section */
+.cart-section {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-section h3 {
+  margin-bottom: 20px;
+}
+
+.cart-section ul {
+  list-style: none;
+}
+
+.cart-section li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cart-section li:last-child {
+  border-bottom: none;
+}
+
+.cart-section li h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.cart-section li p {
+  margin: 0;
+  color: #007bff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .cart-section {
+    margin-top: 2rem;
+  }
+}

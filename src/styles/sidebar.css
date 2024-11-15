@@ -1,0 +1,53 @@
+/* Sidebar Toggle Button (Menu/Close Text) */
+.sidebar-toggle-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle-button:hover {
+  background-color: #0056b3;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transition: left 0.3s ease;
+}
+
+.sidebar.open {
+  left: 0; /* Move sidebar to visible position when open */
+}
+
+.sidebar h6 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.sidebar .MuiListItemButton-root {
+  color: #ddd;
+}
+
+.sidebar .MuiListItemButton-root:hover {
+  background-color: #444;
+}
+
+/* Add extra padding for content when sidebar is open */
+body {
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.open ~ .content {
+  margin-left: 250px; /* Adjust content when sidebar is open */
+}

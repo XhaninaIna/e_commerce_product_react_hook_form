@@ -1,0 +1,59 @@
+/* Container for the receipt */
+.receipt {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Roboto", sans-serif;
+}
+
+/* Title styling */
+.receipt h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* List items for each product */
+.receipt .MuiListItem-root {
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Product title and price styling */
+.receipt .MuiListItemText-root .MuiTypography-root {
+  font-size: 18px;
+  color: #333;
+}
+
+.receipt .MuiListItemText-root .MuiTypography-root.MuiTypography-body2 {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Divider between items */
+.receipt .MuiDivider-root {
+  margin: 10px 0;
+  border-color: #e0e0e0;
+}
+
+/* Total price styling */
+.receipt .total-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1976d2; /* Primary blue color */
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* No orders message styling */
+.receipt .no-orders {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  margin-top: 40px;
+}

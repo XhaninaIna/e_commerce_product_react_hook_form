@@ -1,0 +1,149 @@
+/* Checkout Container */
+.checkout {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Checkout Heading */
+  .checkout h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Cart Section */
+  .checkout__cart {
+    margin-bottom: 40px;
+  }
+  
+  .checkout__cart h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Cart Items List */
+  .checkout__cart ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .checkout__cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkout__cart-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 8px;
+  }
+  
+  .checkout__cart-item div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .checkout__cart-item p {
+    margin: 0;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  /* Total Price */
+  .checkout__total {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Checkout Form Section */
+  .checkout__form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkout__form h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Input Fields */
+  .MuiTextField-root {
+    margin-bottom: 20px;
+  }
+  
+  .MuiFormControl-root {
+    width: 100%;
+  }
+  
+  /* Button */
+  button:disabled {
+    background-color: #cfcfcf;
+    cursor: not-allowed;
+  }
+  
+  .checkout__form button {
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .checkout__form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Empty Cart Message */
+  .checkout p {
+    font-size: 18px;
+    text-align: center;
+    color: #888;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .checkout {
+      padding: 15px;
+    }
+  
+    .checkout__cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .checkout__cart-item-image {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+    }
+  
+    .checkout__total {
+      text-align: left;
+    }
+  }
+  
+  

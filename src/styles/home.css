@@ -1,0 +1,100 @@
+/* Home Page Container */
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+  }
+  
+  /* Welcome Heading */
+  .home h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  /* Product List Container */
+  .home .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  /* Individual Product Cards */
+  .home .product-list .product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .home .product-list .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Product Image */
+  .home .product-list .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #f4f4f4;
+  }
+  
+  /* Product Information */
+  .home .product-list .product-card .product-info {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .home .product-list .product-card .product-info h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .home .product-list .product-card .product-info p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .home .product-list .product-card .product-info .product-price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .home h1 {
+      font-size: 28px;
+    }
+  
+    .home .product-list {
+      gap: 15px;
+    }
+  
+    .home .product-list .product-card img {
+      height: 180px;
+    }
+  
+    .home .product-list .product-card .product-info h2 {
+      font-size: 18px;
+    }
+  
+    .home .product-list .product-card .product-info p {
+      font-size: 14px;
+    }
+  }
+  
