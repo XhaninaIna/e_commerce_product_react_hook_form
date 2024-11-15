@@ -1,6 +1,7 @@
 import React from "react";
 import { useProductContext } from "../context/ProductContext.tsx";
 import { Product } from "../services/api";
+import { Link } from "react-router-dom";
 // import "../styles/productcard.css";
 type ProductCardProps = {
   product: Product;
@@ -14,11 +15,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   return (
     <div className="product-card">
-      <img
-        src={product.image}
-        alt={product.title}
-        className="product-card__image"
-      />
+      <Link to="/product/:id">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="product-card__image"
+        />
+      </Link>
       <div className="product-card__details">
         <h2 className="product-card__title">{product.title}</h2>
         <p className="product-card__category">{product.category}</p>

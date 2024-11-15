@@ -143,17 +143,16 @@ const ManageProduct = () => {
         </Button>
       </form>
 
-      <div className="product-list">
+      <div>
         <Grid container spacing={4}>
           {products.map((product) => (
-            <Grid item key={product.id} xs={12} sm={6} md={4} lg={12}>
+            <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
               <Card
                 className="product-card"
                 sx={{
                   height: "100%",
                   display: "flex",
-                  flexDirection: "columns",
-                  maxWidth: 400,
+                  flexDirection: "column",
                   padding: 3,
                   boxShadow: 3,
                   borderRadius: "8px",
