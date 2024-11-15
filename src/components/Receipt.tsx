@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useProductContext } from "../context/ProductContext";
 import {
   List,
@@ -28,7 +28,6 @@ const Receipt: React.FC = () => {
       <Typography variant="h4" gutterBottom>
         Receipt
       </Typography>
-
       <List>
         {state.orders.map((product, index) => (
           <React.Fragment key={product.id || index}>

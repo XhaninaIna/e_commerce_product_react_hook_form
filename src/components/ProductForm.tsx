@@ -1,13 +1,11 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import {
-  TextField,
-  Button,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-} from "@mui/material";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
 import { useProductContext } from "../context/ProductContext";
 import { Product } from "../services/api";
 import "../styles/productform.css";

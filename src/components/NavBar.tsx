@@ -6,6 +6,7 @@ import {
   ListItemText,
   Typography,
   Divider,
+  TextField,
 } from "@mui/material";
 import { useProductContext } from "../context/ProductContext.tsx";
 import "../styles/sidebar.css";
@@ -14,6 +15,7 @@ import "../styles/navbar.css";
 const Navbar: React.FC = () => {
   const { state, dispatch } = useProductContext();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const categories = Array.from(
     new Set(state.products.map((product) => product.category))
@@ -31,6 +33,23 @@ const Navbar: React.FC = () => {
       ),
     });
     setSidebarOpen(false);
+  };
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const term = e.target.value.toLowerCase();
+    setSearchTerm(term);
+    if (term === "") {
+      window.location.reload();
+    } else {
+      dispatch({
+        type: "SET_PRODUCTS",
+        payload: state.products.filter(
+          (product) =>
+            product.title.toLowerCase().includes(term) ||
+            product.description.toLowerCase().includes(term)
+        ),
+      });
+    }
   };
 
   return (
@@ -51,6 +70,7 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
       </nav>
+
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <Typography variant="h6" gutterBottom>
           Categories
@@ -65,6 +85,17 @@ const Navbar: React.FC = () => {
             </React.Fragment>
           ))}
         </List>
+
+        <Typography variant="h6" gutterBottom>
+          Search
+        </Typography>
+        <TextField
+          fullWidth
+          variant="outlined"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={handleSearch}
+        />
 
         <List>
           <ListItemButton component={Link} to="/manage-product">

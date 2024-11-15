@@ -1,60 +1,54 @@
-/* Navbar container */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(90deg, #1e3c72, #2a5298);
-    padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 20px;
+  padding: 8px 16px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 4px;
+}
+
+.navbar__link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffbb33;
+  transform: scale(1.05);
+}
+
+.navbar__cart-count {
+  background-color: #ffbb33;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  /* Navbar links */
+
   .navbar__link {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    margin-right: 20px;
-    padding: 8px 16px;
-    transition: all 0.3s ease-in-out;
-    border-radius: 4px;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
-  
-  /* Hover effects for links */
-  .navbar__link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffbb33;
-    transform: scale(1.05);
-  }
-  
-  /* Cart count */
+
   .navbar__cart-count {
-    background-color: #ffbb33;
-    color: white;
-    border-radius: 20px;
-    padding: 5px 12px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
+    margin-top: 10px;
   }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .navbar__link {
-      margin-right: 0;
-      margin-bottom: 10px;
-    }
-  
-    .navbar__cart-count {
-      margin-top: 10px;
-    }
-  }
-  
+}

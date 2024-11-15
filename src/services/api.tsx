@@ -1,5 +1,4 @@
 const API_URL = "https://fakestoreapi.com/products";
-
 export type Product = {
   id: number;
   title: string;
@@ -8,7 +7,6 @@ export type Product = {
   category: string;
   image: string;
 };
-
 export const fetchProducts = async (): Promise<Product[]> => {
   const response = await fetch(API_URL);
   if (!response.ok) {

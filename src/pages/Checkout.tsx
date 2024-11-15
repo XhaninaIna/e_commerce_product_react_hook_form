@@ -1,35 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useProductContext } from "../context/ProductContext.tsx";
-import { useForm } from "react-hook-form";
 import { Product } from "../services/api";
-import { TextField, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import "../styles/checkout.css";
-
 const Checkout = () => {
   const { state, dispatch } = useProductContext();
   const { cart } = state;
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
   const calculateTotal = () => {
     return cart.reduce((total, product) => total + product.price, 0).toFixed(2);
   };
-
-  const onSubmit = (data) => {
-    setTimeout(() => {
-      alert("Order placed successfully!");
-      dispatch({ type: "ADD_ORDER", payload: cart });
-      dispatch({
-        type: "REMOVE_FROM_CART",
-        payload: cart.map((product) => product.id),
-      });
-    }, 2000);
-  };
-
   const handleRemoveFromCart = (id: number) => {
     dispatch({
       type: "REMOVE_FROM_CART",
@@ -39,12 +18,11 @@ const Checkout = () => {
 
   if (cart.length === 0) {
     return (
-      <p>
+      <p style={{ textAlign: "center", marginTop: "40px" }}>
         Your cart is empty. Please add some products to proceed with checkout.
       </p>
     );
   }
-
   return (
     <div className="checkout">
       <h2>Checkout</h2>
@@ -62,15 +40,16 @@ const Checkout = () => {
               <div>
                 <p>{product.title}</p>
                 <p>${product.price}</p>
-                <Button
-                  variant="contained"
-                  color="error"
-                  onClick={() => handleRemoveFromCart(product.id)}
-                  className="checkout__remove-button"
-                >
-                  Remove
-                </Button>
               </div>
+              <Button
+                variant="contained"
+                color="error"
+                onClick={() => handleRemoveFromCart(product.id)}
+                className="checkout_remove_btn"
+                
+              >
+                Remove
+              </Button>
             </li>
           ))}
         </ul>

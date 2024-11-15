@@ -1,10 +1,11 @@
-// src/pages/ProductDetails.tsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProductById, Product } from "../services/api.tsx";
+import { useProductContext } from "../context/ProductContext.tsx";
 import "../styles/productdetails.css";
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { dispatch } = useProductContext();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
@@ -25,6 +26,13 @@ const ProductDetails: React.FC = () => {
 
     getProductDetails();
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (product) {
+      dispatch({ type: "ADD_TO_CART", payload: product });
+      alert(`${product.title} has been added to the cart.`);
+    }
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -48,11 +56,7 @@ const ProductDetails: React.FC = () => {
       <p>
         <strong>Description:</strong> {product.description}
       </p>
-      <button
-        onClick={() => alert("Add to cart feature is not implemented yet.")}
-      >
-        Add to Cart
-      </button>
+      <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
 };

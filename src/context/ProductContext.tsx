@@ -38,8 +38,8 @@ type ProductContextType = {
 };
 
 const initialState: State = {
-  products: [],
-  cart: [],
+  products: JSON.parse(localStorage.getItem("products") || "[]"),
+  cart: JSON.parse(localStorage.getItem("cart") || "[]"),
   orders: [],
 };
 
@@ -50,32 +50,37 @@ function productReducer(state: State, action: Action): State {
     case "SET_PRODUCTS":
       return { ...state, products: action.payload };
     case "ADD_TO_CART":
+      const updatedCart = [...state.cart, action.payload];
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
       return { ...state, cart: [...state.cart, action.payload] };
-    case "REMOVE_FROM_CART":
-      return {
-        ...state,
-        cart: state.cart.filter(
-          (product) => !action.payload.includes(product.id)
-        ),
-      };
+    case "REMOVE_FROM_CART": {
+      const updatedCart = state.cart.filter(
+        (product) => !action.payload.includes(product.id)
+      );
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      return { ...state, cart: updatedCart };
+    }
     case "ADD_ORDER":
       return { ...state, orders: [...state.orders, ...state.cart], cart: [] };
-    case "ADD_PRODUCT":
-      return { ...state, products: [...state.products, action.payload] };
-    case "EDIT_PRODUCT":
-      return {
-        ...state,
-        products: state.products.map((product) =>
-          product.id === action.payload.id ? action.payload : product
-        ),
-      };
-    case "DELETE_PRODUCT":
-      return {
-        ...state,
-        products: state.products.filter(
-          (product) => product.id !== action.payload
-        ),
-      };
+    case "ADD_PRODUCT": {
+      const updatedProducts = [...state.products, action.payload];
+      localStorage.setItem("products", JSON.stringify(updatedProducts));
+      return { ...state, products: updatedProducts };
+    }
+    case "EDIT_PRODUCT": {
+      const updatedProducts = state.products.map((product) =>
+        product.id === action.payload.id ? action.payload : product
+      );
+      localStorage.setItem("products", JSON.stringify(updatedProducts));
+      return { ...state, products: updatedProducts };
+    }
+    case "DELETE_PRODUCT": {
+      const updatedProducts = state.products.filter(
+        (product) => product.id !== action.payload
+      );
+      localStorage.setItem("products", JSON.stringify(updatedProducts));
+      return { ...state, products: updatedProducts };
+    }
     default:
       return state;
   }
